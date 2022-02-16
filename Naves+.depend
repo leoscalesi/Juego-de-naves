@@ -1,0 +1,56 @@
+# depslib dependency file v1.0
+1644527231 source:c:\users\user\desktop\naves+\naves+\main.cpp
+	<iostream>
+	"Menu.h"
+
+1644528413 c:\users\user\desktop\naves+\naves+\menu.h
+	<cstdlib>
+	"FuncionesGlobales.h"
+	"Juego.h"
+
+1644940504 c:\users\user\desktop\naves+\naves+\funcionesglobales.h
+	<windows.h>
+	<fstream>
+	"rlutil.h"
+
+1644948939 c:\users\user\desktop\naves+\naves+\juego.h
+	<list>
+	<stdlib.h>
+	<ctime>
+	"FuncionesGlobales.h"
+	"Nave.h"
+	"Bala.h"
+	"Asteroide.h"
+	"Ovni.h"
+	"Jefe.h"
+
+1644530196 c:\users\user\desktop\naves+\naves+\nave.h
+	<conio.h>
+	"FuncionesGlobales.h"
+
+1644938169 c:\users\user\desktop\naves+\naves+\asteroide.h
+	<stdlib.h>
+
+1644529674 c:\users\user\desktop\naves+\naves+\bala.h
+
+1644688892 c:\users\user\desktop\naves+\naves+\ovni.h
+	"FuncionesGlobales.h"
+	"Nave.h"
+
+1644949069 c:\users\user\desktop\naves+\naves+\jefe.h
+	"FuncionesGlobales.h"
+
+1643382026 c:\users\user\desktop\naves+\naves+\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
