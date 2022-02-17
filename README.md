@@ -33,14 +33,23 @@ Las clases con las que trabajo son las siguientes:
 
 
 Class Nave, que incluye los siguientes metodos:     Nave(int _x,int _y,int _corazones,int _vidas);
+                                                    
                                                     int X(){ return x;}   //PARA ACCEDER A ESTOS ATRIBUTOS DESDE EL ASTEROIDE.
+                                                    
                                                     int Y(){ return y;}
+                                                    
                                                     int VIDAS() { return vidas;}
+                                                    
                                                     void restarCorazones() {corazones --;}
+                                                    
                                                     void pintar();
+                                                    
                                                     void borrar();
+                                                    
                                                     void mover();
+                                                    
                                                     void pintarCorazones();
+                                                    
                                                     void morir();
 
 Esta clase representa a la Nave que el jugador manejara durante el juego.
