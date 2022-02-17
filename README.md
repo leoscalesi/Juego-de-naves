@@ -56,11 +56,17 @@ Esta clase representa a la Nave que el jugador manejara durante el juego.
 
 
 Class Asteroide, que incluye los siguientes metodos:   Asteroide(int _x,int _y);
+                                                       
                                                        int X(){ return x;}
+                                                       
                                                        int Y(){ return y;}
+                                                       
                                                        void pintar();
+                                                       
                                                        void mover();
+                                                       
                                                        void borrar();
+                                                       
                                                        void colision(class Nave&);
 
 Esta clase representa a los asteroides que la nave debe destruir para asi sumar el maximo puntaje posible.
@@ -68,9 +74,13 @@ Esta clase representa a los asteroides que la nave debe destruir para asi sumar 
 
 Class Bala, que incluye los siguientes metodos: 
                                                         Bala(int _x,int _y);
+                                                        
                                                         int X(){ return x;}   //PARA ACCEDER A ESTOS ATRIBUTOS DESDE EL ASTEROIDE.
+                                                        
                                                         int Y(){ return y;}
+                                                        
                                                         void mover();
+                                                        
                                                         bool detectaLimiteSuperiorBala();
 
 
@@ -90,11 +100,17 @@ En esta clase se encuentra el main loop del juego.
 
 Class Ovni, que incluye los siguientes metodos:     
                                                     Ovni(int _x,int _y):x(_x),y(_y){}
+                                                    
                                                     int X(){return x;}
+                                                    
                                                     int Y(){return y;}
+                                                    
                                                     void dibujar();
+                                                    
                                                     void borrar();
+                                                    
                                                     void mover();
+                                                    
                                                     bool detectaLimiteDerecho();
 
                                                     bool colisionNave(Nave&);
@@ -102,8 +118,11 @@ Class Ovni, que incluye los siguientes metodos:
 
 Class Jefe, que incluye los siguientes metodos:  
                                                     Jefe(int _x,int _y,int _dx):x(_x),y(_y),dx(_dx){}
+                                                    
                                                     void dibujar();
+                                                    
                                                     void borrar();
+                                                    
                                                     void mover(); 
                                                     
 La clase Jefe y su logica en el main loop esta en desarrollo actualmente.
@@ -114,12 +133,19 @@ dejarlos como funciones globales. Dire algo respecto a esto en el apartado Que c
 En este archivo tengo las siguientes funciones: 
 
                                                void ocultarCursor()
+                                               
                                                int leerPuntajeArchivo()
+                                               
                                                void guardarPuntajeArchivo(int p)
+                                               
                                                void verMaximaPuntuacion()
+                                               
                                                void pintarLimites()
+                                               
                                                void melodiaListoParaJugar()
+                                               
                                                void pintarListoParaJugar()
+                                               
                                                void melodiaJuegoTerminado()
 
 
