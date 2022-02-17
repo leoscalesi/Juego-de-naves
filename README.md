@@ -11,6 +11,7 @@ por cada asteroide destruido.
 Decidi agregarle ademas lo siguiente:
 
 Guardado de puntaje maximo en un archivo mediante manejo de la libreria fstream.
+
 Ver puntaje maximo desde el menu principal.
 Debido a que los asteroides caen constantemente, no estamos obligados a mover la nave hacia arriba y hacia abajo. Para darle mas interaccion al usuario, decidi agregar
 un nuevo enemigo llamado Ovni, el cual no puede destruirse, y que obliga a que la nave se mueva tambien hacia arriba y hacia abajo en la pantalla.
