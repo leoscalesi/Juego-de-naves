@@ -13,13 +13,19 @@ Decidi agregarle ademas lo siguiente:
 Guardado de puntaje maximo en un archivo mediante manejo de la libreria fstream.
 
 Ver puntaje maximo desde el menu principal.
+
 Debido a que los asteroides caen constantemente, no estamos obligados a mover la nave hacia arriba y hacia abajo. Para darle mas interaccion al usuario, decidi agregar
 un nuevo enemigo llamado Ovni, el cual no puede destruirse, y que obliga a que la nave se mueva tambien hacia arriba y hacia abajo en la pantalla.
+
 Sonidos a los disparos.
+
 Pantalla de juego terminado con una melodia ultra basica hecha por mi.
+
 Melodia inicial al comenzar el juego.
+
 Ademas decidi agregar un modo de juego mas en el menu, en el cual aparezca un Jefe de nivel, al lograr un cierto puntaje. Dicho Jefe esta diseñado, pero su logica esta
 actualmente en desarrollo.
+
 
 Las clases con las que trabajo son las siguientes:
 
