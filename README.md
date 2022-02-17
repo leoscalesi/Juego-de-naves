@@ -27,6 +27,8 @@ Ademas decidi agregar un modo de juego mas en el menu, en el cual aparezca un Je
 actualmente en desarrollo.
 
 
+
+
 Las clases con las que trabajo son las siguientes:
 
 
