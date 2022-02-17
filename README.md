@@ -32,7 +32,8 @@ actualmente en desarrollo.
 Las clases con las que trabajo son las siguientes:
 
 
-Class Nave, que incluye los siguientes metodos:     Nave(int _x,int _y,int _corazones,int _vidas);
+Class Nave, que incluye los siguientes metodos:     
+                                                    Nave(int _x,int _y,int _corazones,int _vidas);
                                                     
                                                     int X(){ return x;}   //PARA ACCEDER A ESTOS ATRIBUTOS DESDE EL ASTEROIDE.
                                                     
