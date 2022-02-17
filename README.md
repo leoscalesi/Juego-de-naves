@@ -57,7 +57,9 @@ Class Nave, que incluye los siguientes metodos:
 Esta clase representa a la Nave que el jugador manejara durante el juego.
 
 
-Class Asteroide, que incluye los siguientes metodos:   Asteroide(int _x,int _y);
+Class Asteroide, que incluye los siguientes metodos:   
+
+                                                       Asteroide(int _x,int _y);
                                                        
                                                        int X(){ return x;}
                                                        
@@ -75,6 +77,7 @@ Esta clase representa a los asteroides que la nave debe destruir para asi sumar 
 
 
 Class Bala, que incluye los siguientes metodos: 
+                                                        
                                                         Bala(int _x,int _y);
                                                         
                                                         int X(){ return x;}   //PARA ACCEDER A ESTOS ATRIBUTOS DESDE EL ASTEROIDE.
@@ -101,6 +104,7 @@ En esta clase se encuentra el main loop del juego.
 
 
 Class Ovni, que incluye los siguientes metodos:     
+                                                    
                                                     Ovni(int _x,int _y):x(_x),y(_y){}
                                                     
                                                     int X(){return x;}
@@ -119,6 +123,7 @@ Class Ovni, que incluye los siguientes metodos:
                                                     
 
 Class Jefe, que incluye los siguientes metodos:  
+                                                    
                                                     Jefe(int _x,int _y,int _dx):x(_x),y(_y),dx(_dx){}
                                                     
                                                     void dibujar();
