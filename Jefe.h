@@ -20,6 +20,7 @@ public:
     void borrar();
     void mover();
     void morir();
+    void mensajeJefeDerrotado();
 
 };
 
@@ -153,14 +154,14 @@ void Jefe::mover(){
 
      x+=dx;
 
-     if(y >= 5 && y <= SCREEN_HEIGHT/2 - 9){  //FUNCIONA BIEN, SOLO PROBAR CON EL DIBUJO DESEADO QUE ANDE, CON EL MAL PADRE ANDA.
+     if(y >= 4 && y <= SCREEN_HEIGHT/2 - 9){  //FUNCIONA BIEN, SOLO PROBAR CON EL DIBUJO DESEADO QUE ANDE, CON EL MAL PADRE ANDA.
 
         y++;
 
 
      }
 
-     if(x+dx == 9 || x+dx == 70){
+     if(x+dx == 13 || x+dx == 80){
 
         dx = -dx;
      }
@@ -234,6 +235,12 @@ void Jefe::morir(){
 }
 
 
+void Jefe::mensajeJefeDerrotado(){
+
+     gotoxy(SCREEN_WIDTH/2,SCREEN_HEIGHT/2); printf("Felicidades");
+     gotoxy(SCREEN_WIDTH/2,SCREEN_HEIGHT/2 + 1); printf("Has ganado!!!");
+
+}
 
 
 

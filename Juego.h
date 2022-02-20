@@ -59,7 +59,7 @@ void Juego::jugar(){
        bool gameover = false;
        int puntos = 0;
        int cont = 0;
-       int contenergiajefe = 1;
+       int contenergiajefe = 3;
 
 
        while(!gameover){
@@ -205,8 +205,8 @@ void Juego::jugar(){
             // -------------------------------------------------------------------------------------------------------------------------
 
 
-            if(puntos >= 100 && puntos <=110){    //A LOS 100 PUNTOS APARECE EL JEFE.
-
+            //if(puntos >= 100 && puntos <110){    //A LOS 100 PUNTOS APARECE EL JEFE.
+            if(puntos == 5){
 
                 for(ita = Asteroides.begin();ita != Asteroides.end();ita++){
 
@@ -275,16 +275,24 @@ void Juego::jugar(){
                             //ENTONCES DEBO USAR EL METODO erase DE list(QUE SE ENCARGA DE RETORNAR UN PUNTERO A LA NUEVA LOCACION DEL ELEMENTO QUE SIGUE AL ULTIMO ELEMENTO BORRADO EN LA LISTA) YA SI NO PERDER EL HILO DE LA ITERACION.
                          it = Balas.erase(it);
 
-                         if(contenergiajefe == 0){
+                         if(contenergiajefe == 0){  // FALTAN ELIMINAR LAS BALAS DEL JEFE. NO ESTARIA FUNCIONANDO.
+
+                            for(itbalasjefe = BalasJefe.begin();itbalasjefe != BalasJefe.end();itbalasjefe++){
+
+                                 gotoxy((*itbalasjefe)->X(),(*itbalasjefe)->Y()); printf(" ");  //LA BALA ATRAVIESA EL LIMITE, SUPERIOR Y SE ROMPE EL JUEGO, PORQUE DEBO ELIMINAR FISICAMENTE DE LA LISTA A LA BALA.
+                                 delete(*itbalasjefe);  //SI DEJO SOLO EL delete EL ITERADOR DE LA LISTA SE INVALIDA, Y ROMPE EL JUEGO
+                                    //ENTONCES DEBO USAR EL METODO erase DE list(QUE SE ENCARGA DE RETORNAR UN PUNTERO A LA NUEVA LOCACION DEL ELEMENTO QUE SIGUE AL ULTIMO ELEMENTO BORRADO EN LA LISTA) YA SI NO PERDER EL HILO DE LA ITERACION.
+                                 itbalasjefe = BalasJefe.erase(itbalasjefe);
+                            }
 
                             jefe.morir();
-                            //Sleep(2000);
                             puntos += 50;
-                         }
-                    }
+
+
+                        }
+                   }
                 }
             }
-
             //------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -293,28 +301,41 @@ void Juego::jugar(){
 
             Sleep(30);
 
-
-            if(nave.VIDAS() == 0){
+            if(nave.VIDAS() == 0 || contenergiajefe == 0){
 
                   gameover = true;
             }
 
+
+
     }//FIN while.
 
 
-    Sleep(2000);
-    system("cls");
+    if(contenergiajefe == 0){
 
-    gotoxy(SCREEN_WIDTH/2,SCREEN_HEIGHT/2); printf("JUEGO TERMINADO");
-    melodiaJuegoTerminado();
+        nave.retiradaDerrotaJefe();
+        jefe.mensajeJefeDerrotado();
+        Sleep(3000);
 
-    Sleep(1000);
+        system("cls");
 
-    system("cls");
+    }
+    //LA PUNTUACION SOLO SE DEBE GUARDAR EN EL MODO INFINITO.
+    else{
 
-    int maximopuntaje = leerPuntajeArchivo();
-    if (puntos > maximopuntaje) guardarPuntajeArchivo(puntos);
+        Sleep(2000);
+        system("cls");
 
+        gotoxy(SCREEN_WIDTH/2,SCREEN_HEIGHT/2); printf("JUEGO TERMINADO");
+        melodiaJuegoTerminado();
+
+        Sleep(1000);
+
+        system("cls");
+
+        int maximopuntaje = leerPuntajeArchivo();
+        if (puntos > maximopuntaje) guardarPuntajeArchivo(puntos);
+    }
 
 }
 

@@ -30,6 +30,7 @@ class Nave{
       void mover();
       void pintarCorazones();
       void morir();
+      void retiradaDerrotaJefe();
 
 };
 
@@ -113,6 +114,22 @@ void Nave::morir(){
         pintar();        //DIBUJO NUEVAMENTE LA NAVE.
 
      }
+
+}
+
+
+
+void Nave::retiradaDerrotaJefe(){
+
+   while(y > 4){
+
+        borrar();
+        y--;
+        pintar();
+        Sleep(40);
+   }
+
+   borrar();
 
 }
 
