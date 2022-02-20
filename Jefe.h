@@ -23,120 +23,123 @@ public:
 
 void Jefe::dibujar(){
 
-      //SIMPLEMENTE PARA USAR DE MOLDE EL DIBUJO DE LA NAVE.
-      /*
-      gotoxy(x,y);  printf("  %c",30); //IMPRIME EN PANTALLA EL CARACTER CORRESPONDIENTE AL NUMERO 30 EN ascii.
-      gotoxy(x,y+1); printf(" %c%c%c",40,207,41);  //y+1 DICE QUE NOS DESPLAZAMOS 1 UNIDAD HACIA ABAJO EN EL EJE y.
-      gotoxy(x,y+2); printf("%c%c %c%c",30,190,190,30);
-      */
+      //CUERPO
+     gotoxy(x,y);printf("%c",4);
 
-      //LIMITE SUPERIOR DE LA NAVE.
-      for (int i = 0;i < 24;i++){
+     gotoxy(x - 1,y + 1);printf("%c",4);
+     gotoxy(x + 1,y + 1);printf("%c",4);
 
-         gotoxy(x+i,y); printf("%c",196);
-      }
+     gotoxy(x - 2,y + 2);printf("%c",4);
+     gotoxy(x - 1,y + 2);printf("%c",4);
+     gotoxy(x + 1,y + 2);printf("%c",4);
+     gotoxy(x + 2,y + 2);printf("%c",4);
 
-      //BORDES REDONDEADOS.
-      gotoxy(SCREEN_WIDTH/2 - 15,y + 1); printf("%c",40);
-      gotoxy(SCREEN_WIDTH/2 + 14,y + 1); printf("%c",41);
+     gotoxy(x - 3,y + 3);printf("%c",4);
+     gotoxy(x - 2,y + 3);printf("%c",4);
+     gotoxy(x + 2,y + 3);printf("%c",4);
+     gotoxy(x + 3,y + 3);printf("%c",4);
 
-      //TURBINAS
-      gotoxy(SCREEN_WIDTH/2 - 7,y - 1); printf("%c",30);
-      gotoxy(SCREEN_WIDTH/2 + 6,y - 1); printf("%c",30);
+     gotoxy(x - 4,y + 4);printf("%c",4);
+     gotoxy(x - 3,y + 4);printf("%c",4);
+     gotoxy(x + 3,y + 4);printf("%c",4);
+     gotoxy(x + 4,y + 4);printf("%c",4);
 
-      //LIMITE INFERIOR DE LA NAVE.
-      for (int i = 0;i < 24;i++){
+     //OJOS
+     gotoxy(x - 2,y + 5);printf("%c",169);
+     gotoxy(x + 2,y + 5);printf("%c",169);
 
-         gotoxy(x+i,y + 2); printf("%c",196);
-      }
+     //TENTACULOS
 
-      //SIMBOLOS DE LAS ALAS.
-      gotoxy(SCREEN_WIDTH/2 - 9,y + 1); printf("%c",174);
-      gotoxy(SCREEN_WIDTH/2 + 9,y + 1); printf("%c",175);
+     gotoxy(x - 2,y + 6);printf("%c",41);
+     gotoxy(x - 3,y + 7);printf("%c",40);
+     gotoxy(x - 2,y + 8);printf("%c",41);
+     gotoxy(x - 3,y + 9);printf("%c",40);
+     gotoxy(x - 2,y + 10);printf("%c",41);
+     gotoxy(x - 3,y + 11);printf("%c",40);
 
-      //CABINA.
-      gotoxy(SCREEN_WIDTH/2,y + 1); printf("%c",3);
+     gotoxy(x + 2,y + 6);printf("%c",41);
+     gotoxy(x + 3,y + 7);printf("%c",40);
+     gotoxy(x + 2,y + 8);printf("%c",41);
+     gotoxy(x + 3,y + 9);printf("%c",40);
+     gotoxy(x + 2,y + 10);printf("%c",41);
+     gotoxy(x + 3,y + 11);printf("%c",40);
+
+     gotoxy(x - 3,y + 6);printf("%c",41);
+     gotoxy(x - 4,y + 7);printf("%c",40);
+     gotoxy(x - 3,y + 8);printf("%c",41);
+     gotoxy(x - 4,y + 9);printf("%c",40);
+
+     gotoxy(x + 3,y + 6);printf("%c",41);
+     gotoxy(x + 4,y + 7);printf("%c",40);
+     gotoxy(x + 3,y + 8);printf("%c",41);
+     gotoxy(x + 4,y + 9);printf("%c",40);
+
+     //BOCA
+
+     gotoxy(x ,y + 6);printf("%c",64);
 
 
-      //CAÑON IZQUIERDO.
-
-      for (int i = 0;i < 3;i++){
-
-         gotoxy(SCREEN_WIDTH/2 - 7,y + 3 + i); printf("%c",179);
-      }
-
-      for (int i = 0;i < 3;i++){
-
-         gotoxy(SCREEN_WIDTH/2 - 6,y + 3 + i); printf("%c",179);
-      }
-
-      //CAÑON DERECHO.
-
-      for (int i = 0;i < 3;i++){
-
-         gotoxy(SCREEN_WIDTH/2 + 7,y + 3 + i); printf("%c",179);
-      }
-
-      for (int i = 0;i < 3;i++){
-
-         gotoxy(SCREEN_WIDTH/2 + 6,y + 3 + i); printf("%c",179);
-      }
 }
 
 
 void Jefe::borrar(){
 
-      //LIMITE SUPERIOR DE LA NAVE.
-      for (int i = 0;i < 24;i++){
+       //CUERPO
+     gotoxy(x,y);printf(" ");
 
-         gotoxy(x+i,y); printf(" ");
-      }
+     gotoxy(x - 1,y + 1);printf(" ");
+     gotoxy(x + 1,y + 1);printf(" ");
 
-      //BORDES REDONDEADOS.
-      gotoxy(SCREEN_WIDTH/2 - 15,y + 1); printf(" ");
-      gotoxy(SCREEN_WIDTH/2 + 14,y + 1); printf(" ");
+     gotoxy(x - 2,y + 2);printf(" ");
+     gotoxy(x - 1,y + 2);printf(" ");
+     gotoxy(x + 1,y + 2);printf(" ");
+     gotoxy(x + 2,y + 2);printf(" ");
 
-      //TURBINAS
-      gotoxy(SCREEN_WIDTH/2 - 7,y - 1); printf(" ");
-      gotoxy(SCREEN_WIDTH/2 + 6,y - 1); printf(" ");
+     gotoxy(x - 3,y + 3);printf(" ");
+     gotoxy(x - 2,y + 3);printf(" ");
+     gotoxy(x + 2,y + 3);printf(" ");
+     gotoxy(x + 3,y + 3);printf(" ");
 
-      //LIMITE INFERIOR DE LA NAVE.
-      for (int i = 0;i < 24;i++){
+     gotoxy(x - 4,y + 4);printf(" ");
+     gotoxy(x - 3,y + 4);printf(" ");
+     gotoxy(x + 3,y + 4);printf(" ");
+     gotoxy(x + 4,y + 4);printf(" ");
 
-         gotoxy(x+i,y + 2); printf(" ");
-      }
+     //OJOS
+     gotoxy(x - 2,y + 5);printf(" ");
+     gotoxy(x + 2,y + 5);printf(" ");
 
-      //SIMBOLOS DE LAS ALAS.
-      gotoxy(SCREEN_WIDTH/2 - 9,y + 1); printf(" ");
-      gotoxy(SCREEN_WIDTH/2 + 9,y + 1); printf(" ");
+     //TENTACULOS
 
-      //CABINA.
-      gotoxy(SCREEN_WIDTH/2,y + 1); printf(" ");
+     gotoxy(x - 2,y + 6);printf(" ");
+     gotoxy(x - 3,y + 7);printf(" ");
+     gotoxy(x - 2,y + 8);printf(" ");
+     gotoxy(x - 3,y + 9);printf(" ");
+     gotoxy(x - 2,y + 10);printf(" ");
+     gotoxy(x - 3,y + 11);printf(" ");
+
+     gotoxy(x + 2,y + 6);printf(" ");
+     gotoxy(x + 3,y + 7);printf(" ");
+     gotoxy(x + 2,y + 8);printf(" ");
+     gotoxy(x + 3,y + 9);printf(" ");
+     gotoxy(x + 2,y + 10);printf(" ");
+     gotoxy(x + 3,y + 11);printf(" ");
+
+     gotoxy(x - 3,y + 6);printf(" ");
+     gotoxy(x - 4,y + 7);printf(" ");
+     gotoxy(x - 3,y + 8);printf(" ");
+     gotoxy(x - 4,y + 9);printf(" ");
+
+     gotoxy(x + 3,y + 6);printf(" ");
+     gotoxy(x + 4,y + 7);printf(" ");
+     gotoxy(x + 3,y + 8);printf(" ");
+     gotoxy(x + 4,y + 9);printf(" ");
+
+     //BOCA
+
+     gotoxy(x ,y + 6);printf(" ");
 
 
-      //CAÑON IZQUIERDO.
-
-      for (int i = 0;i < 3;i++){
-
-         gotoxy(SCREEN_WIDTH/2 - 7,y + 3 + i); printf(" ");
-      }
-
-      for (int i = 0;i < 3;i++){
-
-         gotoxy(SCREEN_WIDTH/2 - 6,y + 3 + i); printf(" ");
-      }
-
-      //CAÑON DERECHO.
-
-      for (int i = 0;i < 3;i++){
-
-         gotoxy(SCREEN_WIDTH/2 + 7,y + 3 + i); printf(" ");
-      }
-
-      for (int i = 0;i < 3;i++){
-
-         gotoxy(SCREEN_WIDTH/2 + 6,y + 3 + i); printf(" ");
-      }
 }
 
 
@@ -145,21 +148,22 @@ void Jefe::mover(){
 
      borrar();
 
-     x+=dx; //IGUAL SE ROMPE, PROBAR DE DIBUJAR SIN LOS for AL JEFE.
+     x+=dx; //IGUAL SE ROMPE, PROBAR DE DIBUJAR SIN LOS for AL JEFE. //ESTE INCREMENTO HACE QUE ROMPA PARTE DEL JEFE. PROBAR DE DIBUJAR DE OTRA FORMA. PROBANDO CON LA IMAGEN DEL MAL PADRE SE MUEVE
+     //O SEA HAY PROBLEMAS CON EL DIBUJO ORIGINAL DEL JEFE.
 
-     if(y >= 4 && y <= SCREEN_HEIGHT/2 - 9){  //CUANDO APARECE SE MUEVE HACIA ABAJO.
+
+
+     if(y >= 4 && y <= SCREEN_HEIGHT/2 - 11){  //FUNCIONA BIEN, SOLO PROBAR CON EL DIBUJO DESEADO QUE ANDE, CON EL MAL PADRE ANDA.
 
         y++;
-     }
-     /*
-     else{
 
-         if(y <= SCREEN_HEIGHT/2 - 5 && y > SCREEN_HEIGHT/2 - 10) y--;  //COMO HAGO PARA QUE SUBA????
 
      }
-     */
-     //if(y >= SCREEN_HEIGHT/2 - 9) x++; //SI HAGO ESO SE ROMPE UNA PARTE DEL BOSS. INTERESANTE.
 
+     if(x+dx == 9 || x+dx == 70){
+
+        dx = -dx;
+     }
 
      dibujar();
 }

@@ -203,7 +203,7 @@ void Juego::jugar(){
 
             for(ita = Asteroides.begin();ita != Asteroides.end();ita++){
 
-                //(*ita)->borrar();
+                (*ita)->borrar();
                 gotoxy((*ita)->X(),(*ita)->Y()); printf(" ");
                 delete(*ita);
                 ita = Asteroides.erase(ita);
