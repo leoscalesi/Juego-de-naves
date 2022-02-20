@@ -54,6 +54,11 @@ void Juego::jugar(){
         list<Ovni*>::iterator itovni;  //SOLO UN OVNI QUE AL LLEGAR A LOS LIMITES DE LA PANTALLA SE DESTRUYE, CREANDOSE OTRO EN UN RANGO DETERMINADO DE LA PANTALLA (DE LA MITAD DEL ALTO
                                         //DE LA PANTALLA PARA ABAJO .
 
+        //CREO UN OBJETO LISTA PARA LAS BALAS, CON PUNTEROS A BALA,PARA FACILITAR LA CREACION DE OBJETOS CON EL OPERADOR new.
+        list<Bala*> BalasJefe;
+        //CREO UN ITERADOR PARA RECORRER LA LISTA.
+        list<Bala*>::iterator itbalasjefe;
+
 
         //AGREGO 5 ASTEROIDES A LA LISTA EN POSICIONES EN x E y AL AZAR.
         for(int i = 0; i < 5;i++){
@@ -219,19 +224,29 @@ void Juego::jugar(){
                 itovni = ovnis.erase(itovni);
             }
 
-
-            //BIEN, BORRA TODO AL LLEGAR AL PUNTAJE.
-
-            //flasheaPantallaJefe(); ESTE METODO TRAE VARIOS PROBLEMAS. PRIMERO NO DEJA DE FLASHEAR LA PANTALLA. SEGUNDO FLASHEA POR FUERA DE LOS BORDES.
-
-
-            //jefe.borrar();   //NO BORRA.
-            //jefe.dibujar(); // EL JEFE DEBE AVANZAR DESDE ARRIBA Y LUEGO MOVERSE DE IZQUIERDA A DERECHA, Y DE ARRIBA PARA ABAJO,
-                            //QUE EL MOVIMEIENTO DE ARRIBA PARA ABAJO SE CONTROLE CON MODULO DE CONTADOR.
-
             jefe.mover();
-            //jefe.dibujar();
-            //jefe.borrar();
+
+            if(cont%5 == 0 && cont%7 == 0){
+
+                BalasJefe.push_back(new Bala(jefe.X() ,jefe.Y() + 5));
+            }
+
+
+            for(itbalasjefe = BalasJefe.begin();itbalasjefe != BalasJefe.end();itbalasjefe++){
+
+               (*itbalasjefe)->moverBalaJefe();
+
+                if((*itbalasjefe)->detectaLimiteInferiorBalaJefe()){    //SI DA true DEBO ELIMINAR LA BALA SEGUN LA CONDICION DENTRO DE ESTE METODO.
+
+                    //BORRO LA BALA PRIMERO SITUANDOME EN LAS COORDENADAS DE LA BALA.
+
+                    gotoxy((*itbalasjefe)->X(),(*itbalasjefe)->Y()); printf(" ");  //LA BALA ATRAVIESA EL LIMITE, SUPERIOR Y SE ROMPE EL JUEGO, PORQUE DEBO ELIMINAR FISICAMENTE DE LA LISTA A LA BALA.
+                    delete(*itbalasjefe);  //SI DEJO SOLO EL delete EL ITERADOR DE LA LISTA SE INVALIDA, Y ROMPE EL JUEGO
+                    //ENTONCES DEBO USAR EL METODO erase DE list(QUE SE ENCARGA DE RETORNAR UN PUNTERO A LA NUEVA LOCACION DEL ELEMENTO QUE SIGUE AL ULTIMO ELEMENTO BORRADO EN LA LISTA) YA SI NO PERDER EL HILO DE LA ITERACION.
+                    itbalasjefe = BalasJefe.erase(itbalasjefe);
+               }
+
+            }
 
 
         }

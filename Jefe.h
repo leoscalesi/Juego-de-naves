@@ -14,6 +14,8 @@ class Jefe{
 public:
 
     Jefe(int _x,int _y,int _dx):x(_x),y(_y),dx(_dx){}
+    int X(){return x;}
+    int Y(){return y;}
     void dibujar();
     void borrar();
     void mover();
