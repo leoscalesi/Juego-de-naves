@@ -1,6 +1,9 @@
 #ifndef BALA_H_INCLUDED
 #define BALA_H_INCLUDED
 
+
+#include "Jefe.h"
+
 class Bala{
 
       int x,y;
@@ -14,6 +17,8 @@ class Bala{
       void moverBalaJefe();
       bool detectaLimiteSuperiorBala();
       bool detectaLimiteInferiorBalaJefe();
+      bool colisionBalaJefeNave(Nave&);
+      bool detectaDanioBalaJefe(Jefe&);  //LE DEBO PASAR LAS COORD DEL JEFE.
 
 };
 
@@ -66,7 +71,34 @@ bool Bala::detectaLimiteInferiorBalaJefe(){
 }
 
 
+bool Bala::colisionBalaJefeNave(Nave& nave){
 
+     if(x >= nave.X() && x < nave.X()+6 && y >= nave.Y() && y <= nave.Y()+2){    //CONDICION QUE EVALUA TENIENDO EN CUENTA EL TAMAÑO DE LA NAVE CUANDO HAY COLISION CON EL ASTEROIDE
+
+          Beep(400,100);
+          Sleep(500); // PARA QUE CADA VEZ QUE TOQUEN A LA NAVE SE NOTE MAS.
+          nave.restarCorazones();   //IMPORTANTE PORQUE ACA VEO COMO SE COMUNICAN NAVE Y ASTEROIDE
+          nave.pintar(); //PARA QUE NO SE BORRE PARTE DE LA NAVE CUANDO LA TOCA EL ASTEROIDE
+          nave.pintarCorazones();  //ACTUALIZO CORAZONES
+
+          return true;
+
+    }
+
+    return false;
+
+}
+
+
+bool Bala::detectaDanioBalaJefe(Jefe& jefe){
+
+     if(x == jefe.X() && y == jefe.Y() || x == jefe.X() - 1 && y == jefe.Y() || x == jefe.X() + 1 && y == jefe.Y()){
+
+        return true;
+     }
+
+     return false;
+}
 
 
 

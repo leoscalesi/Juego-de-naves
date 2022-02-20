@@ -19,6 +19,7 @@ public:
     void dibujar();
     void borrar();
     void mover();
+    void morir();
 
 };
 
@@ -150,12 +151,9 @@ void Jefe::mover(){
 
      borrar();
 
-     x+=dx; //IGUAL SE ROMPE, PROBAR DE DIBUJAR SIN LOS for AL JEFE. //ESTE INCREMENTO HACE QUE ROMPA PARTE DEL JEFE. PROBAR DE DIBUJAR DE OTRA FORMA. PROBANDO CON LA IMAGEN DEL MAL PADRE SE MUEVE
-     //O SEA HAY PROBLEMAS CON EL DIBUJO ORIGINAL DEL JEFE.
+     x+=dx;
 
-
-
-     if(y >= 4 && y <= SCREEN_HEIGHT/2 - 11){  //FUNCIONA BIEN, SOLO PROBAR CON EL DIBUJO DESEADO QUE ANDE, CON EL MAL PADRE ANDA.
+     if(y >= 5 && y <= SCREEN_HEIGHT/2 - 9){  //FUNCIONA BIEN, SOLO PROBAR CON EL DIBUJO DESEADO QUE ANDE, CON EL MAL PADRE ANDA.
 
         y++;
 
@@ -169,6 +167,74 @@ void Jefe::mover(){
 
      dibujar();
 }
+
+
+void Jefe::morir(){
+
+     borrar();
+
+     gotoxy(x,y);printf("*");
+
+     gotoxy(x - 1,y + 1);printf("*");
+     gotoxy(x + 1,y + 1);printf("*");
+
+     gotoxy(x - 2,y + 2);printf("*");
+     gotoxy(x - 1,y + 2);printf("*");
+     gotoxy(x + 1,y + 2);printf("*");
+     gotoxy(x + 2,y + 2);printf("*");
+
+     gotoxy(x - 3,y + 3);printf("*");
+     gotoxy(x - 2,y + 3);printf("*");
+     gotoxy(x + 2,y + 3);printf("*");
+     gotoxy(x + 3,y + 3);printf("*");
+
+     gotoxy(x - 4,y + 4);printf("*");
+     gotoxy(x - 3,y + 4);printf("*");
+     gotoxy(x + 3,y + 4);printf("*");
+     gotoxy(x + 4,y + 4);printf("*");
+
+     //OJOS
+     gotoxy(x - 2,y + 5);printf("*");
+     gotoxy(x + 2,y + 5);printf("*");
+
+     //TENTACULOS
+
+     gotoxy(x - 2,y + 6);printf("*");
+     gotoxy(x - 3,y + 7);printf("*");
+     gotoxy(x - 2,y + 8);printf("*");
+     gotoxy(x - 3,y + 9);printf("*");
+     gotoxy(x - 2,y + 10);printf("*");
+     gotoxy(x - 3,y + 11);printf("*");
+
+     gotoxy(x + 2,y + 6);printf("*");
+     gotoxy(x + 3,y + 7);printf("*");
+     gotoxy(x + 2,y + 8);printf("*");
+     gotoxy(x + 3,y + 9);printf("*");
+     gotoxy(x + 2,y + 10);printf("*");
+     gotoxy(x + 3,y + 11);printf("*");
+
+     gotoxy(x - 3,y + 6);printf("*");
+     gotoxy(x - 4,y + 7);printf("*");
+     gotoxy(x - 3,y + 8);printf("*");
+     gotoxy(x - 4,y + 9);printf("*");
+
+     gotoxy(x + 3,y + 6);printf("*");
+     gotoxy(x + 4,y + 7);printf("*");
+     gotoxy(x + 3,y + 8);printf("*");
+     gotoxy(x + 4,y + 9);printf("*");
+
+     //BOCA
+
+     gotoxy(x ,y + 6);printf("*");
+
+     Sleep(1200);
+
+     borrar();
+
+}
+
+
+
 
 
 #endif // JEFE_H_INCLUDED

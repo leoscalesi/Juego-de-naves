@@ -145,14 +145,14 @@ void pintarLimites(){
 
 void melodiaListoParaJugar(){
 
-    Beep(1568,200);
-    Beep(1568,200);
-    Beep(1568,200);
-    Beep(1245,1000);
+    Beep(1568,100);
+    Beep(1568,100);
+    Beep(1568,100);
+    Beep(1245,500);
     Beep(1397,200);
     Beep(1397,200);
     Beep(1397,200);
-    Beep(1175,1000);
+    Beep(1175,500);
 
 }
 
@@ -176,17 +176,7 @@ void melodiaJuegoTerminado(){
       Beep(200,1000);
 }
 
-/*
-void flasheaPantallaJefe(){
 
-     for(int i = 0; i < 2; i++){
-
-         system("COLOR 1F");
-         Sleep(50);
-         system("COLOR 0F");
-     }
-}
-*/
 
 
 
