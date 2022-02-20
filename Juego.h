@@ -16,11 +16,11 @@ class Juego{
 
 public:
 
-    static void jugar();
+    static void jugar(int);
 
 };
 
-void Juego::jugar(){
+void Juego::jugar(int opc){
 
 
        srand(time( NULL ));
@@ -59,7 +59,7 @@ void Juego::jugar(){
        bool gameover = false;
        int puntos = 0;
        int cont = 0;
-       int contenergiajefe = 3;
+       int contenergiajefe = 10;
 
 
        while(!gameover){
@@ -204,93 +204,94 @@ void Juego::jugar(){
             // PARA LUCHAR CONTRA EL JEFE EL PUNTAJE DEBE SER DE 100.
             // -------------------------------------------------------------------------------------------------------------------------
 
+            if(opc == 2){
 
-            //if(puntos >= 100 && puntos <110){    //A LOS 100 PUNTOS APARECE EL JEFE.
-            if(puntos == 5){
+                if(puntos >= 100 && puntos <110){    //A LOS 100 PUNTOS APARECE EL JEFE.
 
-                for(ita = Asteroides.begin();ita != Asteroides.end();ita++){
+                    for(ita = Asteroides.begin();ita != Asteroides.end();ita++){
 
-                    (*ita)->borrar();
-                    gotoxy((*ita)->X(),(*ita)->Y()); printf(" ");
-                    delete(*ita);
-                    ita = Asteroides.erase(ita);
-                }
-
-
-
-                for(itovni = ovnis.begin();itovni != ovnis.end();itovni++){   //COLISION OVNI NAVE.
-
-                    (*itovni)->borrar();
-                    delete(*itovni);
-                    itovni = ovnis.erase(itovni);
-                }
-
-                jefe.mover();
-
-                if(cont%5 == 0 && cont%2 == 0){
-
-                    BalasJefe.push_back(new Bala(jefe.X() ,jefe.Y() + 5));
-                }
-
-
-                for(itbalasjefe = BalasJefe.begin();itbalasjefe != BalasJefe.end();itbalasjefe++){
-
-                   (*itbalasjefe)->moverBalaJefe();
-
-                    if((*itbalasjefe)->detectaLimiteInferiorBalaJefe()){    //SI DA true DEBO ELIMINAR LA BALA SEGUN LA CONDICION DENTRO DE ESTE METODO.
-
-                        //BORRO LA BALA PRIMERO SITUANDOME EN LAS COORDENADAS DE LA BALA.
-
-                        gotoxy((*itbalasjefe)->X(),(*itbalasjefe)->Y()); printf(" ");  //LA BALA ATRAVIESA EL LIMITE, SUPERIOR Y SE ROMPE EL JUEGO, PORQUE DEBO ELIMINAR FISICAMENTE DE LA LISTA A LA BALA.
-                        delete(*itbalasjefe);  //SI DEJO SOLO EL delete EL ITERADOR DE LA LISTA SE INVALIDA, Y ROMPE EL JUEGO
-                        //ENTONCES DEBO USAR EL METODO erase DE list(QUE SE ENCARGA DE RETORNAR UN PUNTERO A LA NUEVA LOCACION DEL ELEMENTO QUE SIGUE AL ULTIMO ELEMENTO BORRADO EN LA LISTA) YA SI NO PERDER EL HILO DE LA ITERACION.
-                        itbalasjefe = BalasJefe.erase(itbalasjefe);
-                   }
-
-                }
-
-
-                 for(itbalasjefe = BalasJefe.begin();itbalasjefe != BalasJefe.end();itbalasjefe++){
-
-                    //(*ita)->mover();
-                    if((*itbalasjefe)->colisionBalaJefeNave(nave)){
-
-                     gotoxy((*itbalasjefe)->X(),(*itbalasjefe)->Y()); printf(" ");  //LA BALA ATRAVIESA EL LIMITE, SUPERIOR Y SE ROMPE EL JUEGO, PORQUE DEBO ELIMINAR FISICAMENTE DE LA LISTA A LA BALA.
-                     delete(*itbalasjefe);  //SI DEJO SOLO EL delete EL ITERADOR DE LA LISTA SE INVALIDA, Y ROMPE EL JUEGO
-                        //ENTONCES DEBO USAR EL METODO erase DE list(QUE SE ENCARGA DE RETORNAR UN PUNTERO A LA NUEVA LOCACION DEL ELEMENTO QUE SIGUE AL ULTIMO ELEMENTO BORRADO EN LA LISTA) YA SI NO PERDER EL HILO DE LA ITERACION.
-                     itbalasjefe = BalasJefe.erase(itbalasjefe);
+                        (*ita)->borrar();
+                        gotoxy((*ita)->X(),(*ita)->Y()); printf(" ");
+                        delete(*ita);
+                        ita = Asteroides.erase(ita);
                     }
 
-                }
 
-                for(it = Balas.begin();it != Balas.end();it++){
 
-                    if((*it)->detectaDanioBalaJefe(jefe)){
+                    for(itovni = ovnis.begin();itovni != ovnis.end();itovni++){   //COLISION OVNI NAVE.
 
-                         contenergiajefe = contenergiajefe - 1;
-                         Sleep(500);
+                        (*itovni)->borrar();
+                        delete(*itovni);
+                        itovni = ovnis.erase(itovni);
+                    }
 
-                         gotoxy((*it)->X(),(*it)->Y()); printf(" ");  //LA BALA ATRAVIESA EL LIMITE, SUPERIOR Y SE ROMPE EL JUEGO, PORQUE DEBO ELIMINAR FISICAMENTE DE LA LISTA A LA BALA.
-                         delete(*it);  //SI DEJO SOLO EL delete EL ITERADOR DE LA LISTA SE INVALIDA, Y ROMPE EL JUEGO
+                    jefe.mover();
+
+                    if(cont%5 == 0 && cont%2 == 0){
+
+                        BalasJefe.push_back(new Bala(jefe.X() ,jefe.Y() + 5));
+                    }
+
+
+                    for(itbalasjefe = BalasJefe.begin();itbalasjefe != BalasJefe.end();itbalasjefe++){
+
+                       (*itbalasjefe)->moverBalaJefe();
+
+                        if((*itbalasjefe)->detectaLimiteInferiorBalaJefe()){    //SI DA true DEBO ELIMINAR LA BALA SEGUN LA CONDICION DENTRO DE ESTE METODO.
+
+                            //BORRO LA BALA PRIMERO SITUANDOME EN LAS COORDENADAS DE LA BALA.
+
+                            gotoxy((*itbalasjefe)->X(),(*itbalasjefe)->Y()); printf(" ");  //LA BALA ATRAVIESA EL LIMITE, SUPERIOR Y SE ROMPE EL JUEGO, PORQUE DEBO ELIMINAR FISICAMENTE DE LA LISTA A LA BALA.
+                            delete(*itbalasjefe);  //SI DEJO SOLO EL delete EL ITERADOR DE LA LISTA SE INVALIDA, Y ROMPE EL JUEGO
                             //ENTONCES DEBO USAR EL METODO erase DE list(QUE SE ENCARGA DE RETORNAR UN PUNTERO A LA NUEVA LOCACION DEL ELEMENTO QUE SIGUE AL ULTIMO ELEMENTO BORRADO EN LA LISTA) YA SI NO PERDER EL HILO DE LA ITERACION.
-                         it = Balas.erase(it);
+                            itbalasjefe = BalasJefe.erase(itbalasjefe);
+                       }
 
-                         if(contenergiajefe == 0){  // FALTAN ELIMINAR LAS BALAS DEL JEFE. NO ESTARIA FUNCIONANDO.
-
-                            for(itbalasjefe = BalasJefe.begin();itbalasjefe != BalasJefe.end();itbalasjefe++){
-
-                                 gotoxy((*itbalasjefe)->X(),(*itbalasjefe)->Y()); printf(" ");  //LA BALA ATRAVIESA EL LIMITE, SUPERIOR Y SE ROMPE EL JUEGO, PORQUE DEBO ELIMINAR FISICAMENTE DE LA LISTA A LA BALA.
-                                 delete(*itbalasjefe);  //SI DEJO SOLO EL delete EL ITERADOR DE LA LISTA SE INVALIDA, Y ROMPE EL JUEGO
-                                    //ENTONCES DEBO USAR EL METODO erase DE list(QUE SE ENCARGA DE RETORNAR UN PUNTERO A LA NUEVA LOCACION DEL ELEMENTO QUE SIGUE AL ULTIMO ELEMENTO BORRADO EN LA LISTA) YA SI NO PERDER EL HILO DE LA ITERACION.
-                                 itbalasjefe = BalasJefe.erase(itbalasjefe);
-                            }
-
-                            jefe.morir();
-                            puntos += 50;
+                    }
 
 
+                     for(itbalasjefe = BalasJefe.begin();itbalasjefe != BalasJefe.end();itbalasjefe++){
+
+                        //(*ita)->mover();
+                        if((*itbalasjefe)->colisionBalaJefeNave(nave)){
+
+                         gotoxy((*itbalasjefe)->X(),(*itbalasjefe)->Y()); printf(" ");  //LA BALA ATRAVIESA EL LIMITE, SUPERIOR Y SE ROMPE EL JUEGO, PORQUE DEBO ELIMINAR FISICAMENTE DE LA LISTA A LA BALA.
+                         delete(*itbalasjefe);  //SI DEJO SOLO EL delete EL ITERADOR DE LA LISTA SE INVALIDA, Y ROMPE EL JUEGO
+                            //ENTONCES DEBO USAR EL METODO erase DE list(QUE SE ENCARGA DE RETORNAR UN PUNTERO A LA NUEVA LOCACION DEL ELEMENTO QUE SIGUE AL ULTIMO ELEMENTO BORRADO EN LA LISTA) YA SI NO PERDER EL HILO DE LA ITERACION.
+                         itbalasjefe = BalasJefe.erase(itbalasjefe);
                         }
-                   }
+
+                    }
+
+                    for(it = Balas.begin();it != Balas.end();it++){
+
+                        if((*it)->detectaDanioBalaJefe(jefe)){
+
+                             contenergiajefe = contenergiajefe - 1;
+                             Sleep(500);
+
+                             gotoxy((*it)->X(),(*it)->Y()); printf(" ");  //LA BALA ATRAVIESA EL LIMITE, SUPERIOR Y SE ROMPE EL JUEGO, PORQUE DEBO ELIMINAR FISICAMENTE DE LA LISTA A LA BALA.
+                             delete(*it);  //SI DEJO SOLO EL delete EL ITERADOR DE LA LISTA SE INVALIDA, Y ROMPE EL JUEGO
+                                //ENTONCES DEBO USAR EL METODO erase DE list(QUE SE ENCARGA DE RETORNAR UN PUNTERO A LA NUEVA LOCACION DEL ELEMENTO QUE SIGUE AL ULTIMO ELEMENTO BORRADO EN LA LISTA) YA SI NO PERDER EL HILO DE LA ITERACION.
+                             it = Balas.erase(it);
+
+                             if(contenergiajefe == 0){  // FALTAN ELIMINAR LAS BALAS DEL JEFE. NO ESTARIA FUNCIONANDO.
+
+                                for(itbalasjefe = BalasJefe.begin();itbalasjefe != BalasJefe.end();itbalasjefe++){
+
+                                     gotoxy((*itbalasjefe)->X(),(*itbalasjefe)->Y()); printf(" ");  //LA BALA ATRAVIESA EL LIMITE, SUPERIOR Y SE ROMPE EL JUEGO, PORQUE DEBO ELIMINAR FISICAMENTE DE LA LISTA A LA BALA.
+                                     delete(*itbalasjefe);  //SI DEJO SOLO EL delete EL ITERADOR DE LA LISTA SE INVALIDA, Y ROMPE EL JUEGO
+                                        //ENTONCES DEBO USAR EL METODO erase DE list(QUE SE ENCARGA DE RETORNAR UN PUNTERO A LA NUEVA LOCACION DEL ELEMENTO QUE SIGUE AL ULTIMO ELEMENTO BORRADO EN LA LISTA) YA SI NO PERDER EL HILO DE LA ITERACION.
+                                     itbalasjefe = BalasJefe.erase(itbalasjefe);
+                                }
+
+                                jefe.morir();
+                                puntos += 50;
+
+
+                            }
+                       }
+                    }
                 }
             }
             //------------------------------------------------------------------------------------------------------------------------------------------------------

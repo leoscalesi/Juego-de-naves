@@ -26,8 +26,9 @@ void Menu::mostrar(){
       cout << " ---------------------------- " << endl;
       cout << " MENU PRINCIPAL " << endl << endl;
       cout << endl << endl << endl << endl << endl;
-      cout << " 1 - JUGAR " << endl;
-      cout << " 2 - VER MAXIMA PUNTUACION " << endl;
+      cout << " 1 - MODO INFINITO " << endl;
+      cout << " 2 - DERROTA AL JEFE " << endl;
+      cout << " 3 - VER MAXIMA PUNTUACION " << endl;
       cout  << endl << endl;
       cout << " 0 - SALIR DEL PROGRAMA " << endl << endl << endl;
       cout << " ---------------------------- " << endl;
@@ -39,12 +40,13 @@ void Menu::mostrar(){
       switch(opc){
 
       case 1:
+      case 2:
 
-        Juego::jugar();   //FUNCION GLOBAL.
+        Juego::jugar(opc);
 
       break;
 
-      case 2:
+      case 3:
 
         verMaximaPuntuacion();   //FUNCION GLOBAL (PROBAR DE HACER EL MANEJO DE ARCHIVOS CON fstream).
 
