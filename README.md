@@ -23,9 +23,7 @@ Pantalla de juego terminado con una melodia ultra basica hecha por mi.
 
 Melodia inicial al comenzar el juego.
 
-Ademas decidi agregar un modo de juego mas en el menu, en el cual aparezca un Jefe de nivel, al lograr un cierto puntaje. Dicho Jefe esta diseñado, pero su logica esta
-actualmente en desarrollo.
-
+Ademas decidi agregar un modo de juego mas en el menu, en el cual aparezca un Jefe de nivel, al lograr un cierto puntaje. 
 
 
 
@@ -124,15 +122,22 @@ Class Ovni, que incluye los siguientes metodos:
 
 Class Jefe, que incluye los siguientes metodos:  
                                                     
-                                                    Jefe(int _x,int _y,int _dx):x(_x),y(_y),dx(_dx){}
+                                                   Jefe(int _x,int _y,int _dx):x(_x),y(_y),dx(_dx){}
+    
+                                                   int X(){return x;}
+    
+                                                   int Y(){return y;}
+    
+                                                   void dibujar();
+    
+                                                   void borrar();
+    
+                                                   void mover();
+    
+                                                   void morir();
+    
+                                                   void mensajeJefeDerrotado();
                                                     
-                                                    void dibujar();
-                                                    
-                                                    void borrar();
-                                                    
-                                                    void mover(); 
-                                                    
-La clase Jefe y su logica en el main loop esta en desarrollo actualmente.
 
 
 Por ultimo, tengo un archivo llamado FuncionesGlobales.h, en el cual tengo metodos que no entraban en ninguna de las clases que mencione mas arriba, por lo que decidi
