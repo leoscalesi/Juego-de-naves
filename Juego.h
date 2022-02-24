@@ -10,7 +10,7 @@
 #include "Asteroide.h"
 #include "Ovni.h"
 #include "Jefe.h"
-
+#include "RayoLaser.h"
 
 class Juego{
 
@@ -49,6 +49,12 @@ void Juego::jugar(int opc){
 
        list<Bala*> BalasJefe;
        list<Bala*>::iterator itbalasjefe;
+
+       /*
+       list<RayoLaser*> rayoslaser;
+       list<RayoLaser*>::iterator itrayoslaser;
+       */
+
 
        //AGREGO 5 ASTEROIDES A LA LISTA EN POSICIONES EN x E y AL AZAR.
        for(int i = 0; i < 5;i++){
@@ -232,8 +238,36 @@ void Juego::jugar(int opc){
                         BalasJefe.push_back(new Bala(jefe.X() ,jefe.Y() + 5));
                     }
 
+                    /*
+                    if(cont%50 == 0){
 
-                    for(itbalasjefe = BalasJefe.begin();itbalasjefe != BalasJefe.end();itbalasjefe++){
+                        for(int i = 0;i < 3; i++){
+
+                            rayoslaser.push_back(new RayoLaser(rand()% (SCREEN_WIDTH-10) + 10,rand()% (SCREEN_HEIGHT-4) + 4));
+                        }
+                    }
+
+
+
+                    for(itrayoslaser = rayoslaser.begin();itrayoslaser != rayoslaser.end();itrayoslaser++){
+
+                        (*itrayoslaser)->mover();
+                        (*itrayoslaser)->colision(nave);
+
+                        if((*itrayoslaser)->detectaLimiteInferior()){    //SI DA true DEBO ELIMINAR LA BALA SEGUN LA CONDICION DENTRO DE ESTE METODO.
+
+                        //BORRO LA BALA PRIMERO SITUANDOME EN LAS COORDENADAS DE LA BALA.
+
+                            (*itrayoslaser)->borrar();  //LA BALA ATRAVIESA EL LIMITE, SUPERIOR Y SE ROMPE EL JUEGO, PORQUE DEBO ELIMINAR FISICAMENTE DE LA LISTA A LA BALA.
+                            delete(*itrayoslaser);  //SI DEJO SOLO EL delete EL ITERADOR DE LA LISTA SE INVALIDA, Y ROMPE EL JUEGO
+                            //ENTONCES DEBO USAR EL METODO erase DE list(QUE SE ENCARGA DE RETORNAR UN PUNTERO A LA NUEVA LOCACION DEL ELEMENTO QUE SIGUE AL ULTIMO ELEMENTO BORRADO EN LA LISTA) YA SI NO PERDER EL HILO DE LA ITERACION.
+                            itrayoslaser = rayoslaser.erase(itrayoslaser);
+                        }
+                   }
+
+                   */
+
+                   for(itbalasjefe = BalasJefe.begin();itbalasjefe != BalasJefe.end();itbalasjefe++){
 
                        (*itbalasjefe)->moverBalaJefe();
 
