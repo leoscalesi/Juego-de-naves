@@ -34,7 +34,7 @@ Class Nave, que incluye los siguientes metodos:
                                                     
                                                     Nave(int _x,int _y,int _corazones,int _vidas);
                                                     
-                                                    int X(){ return x;}   //PARA ACCEDER A ESTOS ATRIBUTOS DESDE EL ASTEROIDE.
+                                                    int X(){ return x;}   
                                                     
                                                     int Y(){ return y;}
                                                     
@@ -78,7 +78,7 @@ Class Bala, que incluye los siguientes metodos:
                                                         
                                                         Bala(int _x,int _y);
                                                         
-                                                        int X(){ return x;}   //PARA ACCEDER A ESTOS ATRIBUTOS DESDE EL ASTEROIDE.
+                                                        int X(){ return x;}   
                                                         
                                                         int Y(){ return y;}
                                                         
