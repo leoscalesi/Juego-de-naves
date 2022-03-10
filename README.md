@@ -1,6 +1,6 @@
 # Juego-de-naves-con-C++
 
-Juego de naves utilizando la consola de comando.
+Juego de naves utilizando la consola de comando, escrito en C++.
 
 Dando mis primeros pasos en el desarrollo de videojuegos, en este caso tenemos un juego de naves simple. En este caso, tomo como base el juego desarrollado en el siguiente link: https://www.youtube.com/watch?v=X6lMTEIzjys&list=PLpOqH6AE0tNj8W0EGpoGG2CEMDJTt4ihZ&index=1 Partiendo de dicha base, decidi hacerle agregados que se me fueron ocurriendo.
 
