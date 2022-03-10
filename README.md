@@ -1,4 +1,4 @@
-# Juego-de-naves
+# Juego-de-naves-con-C++
 
 Juego de naves utilizando la consola de comando.
 
